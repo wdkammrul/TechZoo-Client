@@ -16,7 +16,7 @@ const AddProduct = () => {
     }
 
     return (
-        <div className="bg-slate-800 p-24">
+        <div className= "w-11/12 md:w-11/12 lg:w-full mx-auto bg-slate-800 p-24">
 
             <h2 className="text-3xl font-extrabold text-center mb-6">Add a Product</h2>
 

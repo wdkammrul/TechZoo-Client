@@ -17,7 +17,7 @@ const Footer = () => {
                 </div>
             </nav>
             <aside>
-                <p>Copyright © 2023 - All right reserved by <Link className="btn btn-ghost normal-case text-xl">TechZoo</Link></p>
+                <p>Copyright © 2023 - All right reserved by <Link to="/" className="btn btn-ghost normal-case text-xl">TechZoo</Link></p>
             </aside>
         </footer>
     );

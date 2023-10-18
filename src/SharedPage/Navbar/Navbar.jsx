@@ -21,7 +21,7 @@ const Navbar = () => {
                 </div>
                 <img className="w-32 h-32" src="https://i.ibb.co/THmK9VZ/TechZoo.png" alt="" />
 
-                <Link className="btn btn-ghost normal-case text-xl">TechZoo</Link>
+                <Link to="/" className="btn btn-ghost normal-case text-xl">TechZoo</Link>
 
             </div>
             <div className="navbar-center hidden lg:flex">
