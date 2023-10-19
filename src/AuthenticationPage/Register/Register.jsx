@@ -1,11 +1,24 @@
 import { Link } from "react-router-dom";
 
 const Register = () => {
+
+    const handleRegisterBtn = e =>{
+        e.preventDefault()
+        const form = e.target;
+        const name = form.name.value
+        const email = form.email.value
+        const password = form.password.value
+        // console.log(name,email,password)
+        
+        const registerData = {name, email, password}
+        console.log(registerData)
+    }
+
     return (
         <div>
-            <form className="w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-10 mt-10">
+            <form onSubmit={handleRegisterBtn} className="w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-10 mt-10">
                 <div className="form-control">
-                    <h2 className="text-3xl text-center my-6 uppercase">Register Here</h2>
+                    <h2 className="text-4xl text-center my-6 uppercase font-extrabold">Register Here</h2>
 
                     <label className="label">
                         <span className="label-text text-xl font-extrabold">Name</span>
@@ -25,7 +38,7 @@ const Register = () => {
 
                 </div>
                 <div className="form-control mt-6 ">
-                    <button className="btn btn-info">Register</button>
+                    <button className="btn btn-info text-white">Register</button>
 
                     <div className="flex my-8 ">
                         <p className="text-center">Have an account ? <Link to='/login'> <span className="underline font-extrabold text-info text-2xl">Log In</span> here</Link></p>

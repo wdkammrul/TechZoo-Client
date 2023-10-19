@@ -2,11 +2,11 @@
 const ContactUs = () => {
     return (
         <div className="hero ">
-            <div className="hero-content my-20 flex-col md:flex-row-reverse">
+            <div className="hero-content mt-32 flex-col md:flex-row-reverse">
 
                 <div className="card flex-shrink-0 w-full max-w-sm ">
                     <form className="card-body">
-                        <h1 className="text-5xl mb-4 text-info">Contact Us</h1>
+                        <h1 className="text-5xl mb-4 text-info font-bold">Contact Us</h1>
                         <div className="form-control">
                             <label className="label">
                                 <span className="label-text"></span>
@@ -26,7 +26,7 @@ const ContactUs = () => {
                             <input type="text" placeholder="Message" className="input input-bordered" required />
                         </div>
                         <div className="form-control mt-6">
-                            <button className="btn btn-info">Contact Us</button>
+                            <button className="btn btn-info text-white">Contact Us</button>
                         </div>
                     </form>
 

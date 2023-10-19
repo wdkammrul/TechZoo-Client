@@ -6,6 +6,9 @@ import MyCart from "../pages/MyCart/MyCart";
 import Login from "../AuthenticationPage/Login/Login";
 import ErrorPage from "../ErrorPage/ErrorPage";
 import Register from "../AuthenticationPage/Register/Register";
+import SingleBrand from "../pages/SingleBrand/SingleBrand";
+import UpdateForm from "../pages/UpdateForm/UpdateForm";
+import DetailsPage from "../pages/DetailsPage/DetailsPage";
 
 const router = createBrowserRouter([
     {
@@ -32,6 +35,18 @@ const router = createBrowserRouter([
             {
                 path: '/register',
                 element: <Register></Register>
+            },
+            {
+                path: 'singleBrand',
+                element: <SingleBrand></SingleBrand>
+            },
+            {
+                path: 'updateForm',
+                element: <UpdateForm></UpdateForm>
+            },
+            {
+                path: 'detailsPage',
+                element: <DetailsPage></DetailsPage>
             }
         ]
     }

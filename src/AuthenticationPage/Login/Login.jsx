@@ -23,7 +23,7 @@ const Login = () => {
             {/* step-1  */}
             <form onSubmit={handleLogin} className="w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-10 mt-10">
                 <div className="form-control">
-                    <h2 className="text-3xl text-center my-6 uppercase">Log in</h2>
+                    <h2 className="text-4xl text-center my-6 uppercase font-extrabold">Log in</h2>
                     <label className="label">
                         <span className="label-text text-xl font-extrabold">Email</span>
                     </label>
@@ -40,14 +40,14 @@ const Login = () => {
 
                 </div>
                 <div className="form-control mt-6 ">
-                    <button className="btn btn-info">Log In</button>
+                    <button className="btn btn-info text-white">Log In</button>
 
                     <div className="flex my-8 ">
                         <p className="text-center">No account ? Please <Link to='/register'> <span className="underline font-extrabold text-info text-2xl">Register</span></Link></p>
                     
                     </div>
 
-                    <button className=" m-auto btn btn-success uppercase">Log in with Google </button>
+                    <button className=" m-auto btn btn-success uppercase text-white">Log in with Google </button>
                 </div>
             </form>
         </div>

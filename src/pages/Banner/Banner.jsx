@@ -7,8 +7,8 @@ const Banner = () => {
                 <div className="hero-overlay bg-opacity-80"></div>
                 <div className="hero-content text-center text-neutral-content ">
                     <div className="max-w-7xl">
-                        <h1 className="mb-5 text-3xl md:text-4xl lg:text-5xl font-bold">Technology and Electronics</h1>
-                        <p className="mb-5 text-xl md:text-2xl my-6">Search for items from your preferred brand.</p>
+                        <h1 className="mb-5 text-3xl md:text-4xl lg:text-5xl font-extrabold">Technology and Electronics</h1>
+                        <p className="mb-5 text-xl md:text-2xl my-6 font-medium">Search for items from your preferred brand.</p>
                         <div className="form-control ">
                             <div className="input-group">
                                 <input type="text" placeholder="Brand name search..." className="input input-bordered" />

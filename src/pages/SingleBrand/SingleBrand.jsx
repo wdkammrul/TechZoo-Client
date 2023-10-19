@@ -1,10 +1,9 @@
 import { Link } from "react-router-dom";
 
-
-const MyCart = () => {
+const SingleBrand = () => {
     return (
-        <div className="flex gap-4">
-            <div className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] mx-auto flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+       <div className="flex gap-4">
+            <div className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] mx-auto  flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <img
                         src="https://i.ibb.co/1MWhwCx/istockphoto-958956392-612x612.jpg"
@@ -14,7 +13,7 @@ const MyCart = () => {
 
                 <div className="p-10">
                     <h6 className="mb-2 block font-sans text-base font-semibold  leading-relaxed tracking-normal  w-32 rounded-lg  antialiased">
-                        Name:
+                         Name:
                     </h6>
                     <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                         Brand Name:
@@ -28,13 +27,13 @@ const MyCart = () => {
                     <p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         <h1>Rating:</h1>
                     </p>
-
+                   
                     <div className="flex gap-6">
                         <Link to='/detailsPage'><button
                             className="flex select-none  items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold  text-white transition-all bg-info disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                         >
-                            Update
+                            Details
 
                         </button></Link>
 
@@ -42,7 +41,7 @@ const MyCart = () => {
                             className="flex select-none  items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold  text-white transition-all bg-info disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                         >
-                            Delate
+                            Update
 
                         </button></Link>
                     </div>
@@ -50,9 +49,9 @@ const MyCart = () => {
                 </div>
             </div>
 
-
-        </div>
+           
+       </div>
     );
 };
 
-export default MyCart;
+export default SingleBrand;
