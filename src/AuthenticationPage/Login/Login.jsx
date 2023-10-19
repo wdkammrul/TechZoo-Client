@@ -34,7 +34,6 @@ const Login = () => {
                         <span className="label-text text-xl font-extrabold">Password</span>
                     </label>
                     <input type="password" placeholder="Password" name="password" className="input input-bordered" required />
-
                     <label className="label mx-auto mt-4 ">
                         <a href="#" className="label-text-alt text-start  link link-hover  hover:text-green-400 font-bold text-info underline">Forgot password?</a>
                     </label>
