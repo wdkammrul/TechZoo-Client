@@ -9,6 +9,7 @@ import Register from "../AuthenticationPage/Register/Register";
 import SingleBrand from "../pages/SingleBrand/SingleBrand";
 import UpdateForm from "../pages/UpdateForm/UpdateForm";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
+import BrandName from "../pages/BrandName/BrandName";
 
 const router = createBrowserRouter([
     {
@@ -18,7 +19,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home></Home>
+                element: <Home></Home>,
+                loader: () => fetch('http://localhost:5000/brand')
             },
             {
                 path: '/addProduct',
@@ -37,15 +39,21 @@ const router = createBrowserRouter([
                 element: <Register></Register>
             },
             {
-                path: 'singleBrand',
+                path: '/brandName',
+                element: <BrandName></BrandName>,
+                loader: () => fetch('http://localhost:5000/brand')
+                
+            },
+            {
+                path: '/singleBrand/:id',
                 element: <SingleBrand></SingleBrand>
             },
             {
-                path: 'updateForm',
+                path: '/updateForm',
                 element: <UpdateForm></UpdateForm>
             },
             {
-                path: 'detailsPage',
+                path: '/detailsPage/:id',
                 element: <DetailsPage></DetailsPage>
             }
         ]

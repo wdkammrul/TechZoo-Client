@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MyCart = () => {
     return (
-        <div className="flex gap-4 overflow-x-hidden">
+        <div className="flex flex-col gap-4 overflow-x-hidden">
             <div className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] mx-auto flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <img
