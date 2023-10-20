@@ -81,7 +81,7 @@ const UpdateForm = () => {
                     
                 </div>    
 
-                <input className="btn btn-block" type="submit" value="Submit" />
+                <input className="btn btn-block btn-info mt-6" type="submit" value="Submit" />
 
 
             </form>

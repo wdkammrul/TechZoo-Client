@@ -47,7 +47,7 @@ const Login = () => {
                     
                     </div>
 
-                    <button className=" m-auto btn btn-success uppercase text-white">Log in with Google </button>
+                    <button className=" m-auto btn btn-success uppercase">Log in with Google </button>
                 </div>
             </form>
         </div>

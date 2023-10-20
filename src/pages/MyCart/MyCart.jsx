@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 const MyCart = () => {
     return (
-        <div className="flex gap-4">
+        <div className="flex gap-4 overflow-x-hidden">
             <div className="mt-10 relative flex lg:w-full md:w-full lg:max-w-[48rem] max-w-[390px] md:max-w-[580px] mx-auto flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                 <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                     <img
@@ -30,7 +30,7 @@ const MyCart = () => {
                     </p>
 
                     <div className="flex gap-6">
-                        <Link to='/detailsPage'><button
+                        <Link to='/updateForm'><button
                             className="flex select-none  items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold  text-white transition-all bg-info disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                         >
@@ -38,7 +38,7 @@ const MyCart = () => {
 
                         </button></Link>
 
-                        <Link to='/updateForm'><button
+                        <Link to=''><button
                             className="flex select-none  items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold  text-white transition-all bg-info disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                             type="button"
                         >

@@ -1,5 +1,3 @@
-
-
 const AddProduct = () => {
 
     const handleAddProduct = e => {
@@ -13,6 +11,25 @@ const AddProduct = () => {
         const description = form.description.value
         const image = form.image.value
         console.log(name, rating, type, price, description, image, brand)
+   
+        const addProduct = { name, rating, type, price, description, image, brand }
+        console.log(addProduct)
+        
+        fetch('http://localhost:5000/items', {
+          method: 'POST',
+          headers: {
+            'content-type':'application/json',
+          },
+          body: JSON.stringify(addProduct)
+        })
+        .then(res => res.json())
+        .then(data =>{
+            console.log(data)
+            if(data.insertedId){
+                form.reset()
+            }
+        })
+
     }
 
     return (
@@ -21,7 +38,7 @@ const AddProduct = () => {
             <h2 className="text-3xl font-extrabold text-center mb-6">Add a Product</h2>
 
 
-            {/* step-1  */}
+           
             <form onSubmit={handleAddProduct}>
                 {/* form name and quantity row  */}
                 <div className="md:flex mb-6">
@@ -45,14 +62,14 @@ const AddProduct = () => {
                                 <option value="Sony">Sony</option>
                                 <option value="Google">Google</option>
                                 <option value="Intel">Intel</option>
-                                <option value="Hp">Hp</option>
+                                <option value="Nokia">Nokia</option>
                             </select>                    
                         </label>
                     </div>
                 </div>
 
 
-                {/* form supplier row  */}
+                
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2">
                         <label className="label">
@@ -72,7 +89,7 @@ const AddProduct = () => {
                     </div>
                 </div>
 
-                {/* form category and details row  */}
+                
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2">
                         <label className="label">
@@ -92,7 +109,7 @@ const AddProduct = () => {
                     </div>
                 </div>
 
-                {/* form Photo URL row  */}
+               
                 <div className="mb-12">
                     <div className="form-control w-full">
                         <label className="label">
@@ -104,7 +121,7 @@ const AddProduct = () => {
                     </div>
                 </div>
 
-                <input className="btn btn-block" type="submit" value="Add button" />
+                <input className="btn btn-block btn-info" type="submit" value="Add button" />
 
 
             </form>

@@ -6,7 +6,7 @@ import Overview from "../Overview/Overview";
 
 const Home = () => {
     return (
-        <div>
+        <div className="overflow-x-hidden">
             <Banner></Banner>
             <BrandName></BrandName>
             <Overview></Overview>

@@ -4,6 +4,12 @@ import { Link, NavLink } from "react-router-dom";
 const Footer = () => {
     return (
         <footer className="footer footer-center mb-10 mt-32 p-10 bg-base-200 text-base-content rounded-lg w-[400px] md:w-[740px] lg:w-full mx-auto">
+           
+          <div className="flex">
+                <img className="w-32 " src="https://i.ibb.co/THmK9VZ/TechZoo.png" alt="" />
+                <Link to='/' className="btn btn-info normal-case text-white text-2xl">TechZoo</Link>
+ 
+          </div>
             <nav className="grid grid-flow-col gap-4">
                 <NavLink to='/'>Home</NavLink>
                 <NavLink to='/addProduct'>Add Product</NavLink>
