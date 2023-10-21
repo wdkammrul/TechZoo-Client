@@ -9,7 +9,7 @@ const MySingleCart = ({ myCartItem, myCartItems, setMyCartItems }) => {
     const { _id, brand, name, price, type, image, rating } = myCartItem
 
     const handleDelete = _id => {
-        fetch(`http://localhost:5000/myCart/${_id}`, {
+        fetch(`https://tech-zoo-server.vercel.app/myCart/${_id}`, {
             method: 'DELETE'
         })
             .then(res => res.json())
@@ -40,13 +40,13 @@ const MySingleCart = ({ myCartItem, myCartItems, setMyCartItems }) => {
                         Name:{name}
                     </h6>
                     <h4 className="mb-2 block font-sans text-base font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
-                        Brand Name:{ brand}
+                        Brand Name:{brand}
                     </h4>
                     <p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                        Price: { price}
+                        Price: {price}
                     </p>
                     <p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
-                        Type:{type }
+                        Type:{type}
                     </p>
                     <p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
                         <Rating rating={rating}></Rating>

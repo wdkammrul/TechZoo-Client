@@ -11,7 +11,7 @@ const DetailsPage = () => {
 
     useEffect(() => {
         if (id) {
-            fetch('http://localhost:5000/items')
+            fetch('https://tech-zoo-server.vercel.app/items')
                 .then(res => res.json())
                 .then(data => {
                     const detailsData = data?.find(data => data._id === id)
@@ -28,7 +28,7 @@ const DetailsPage = () => {
         const data = { name, brand, type, rating, image, price, description }
         console.log(e, data);
 
-        fetch('http://localhost:5000/myCart', {
+        fetch('https://tech-zoo-server.vercel.app/myCart', {
             method: "POST",
             headers: {
                 "content-type": "application/json",

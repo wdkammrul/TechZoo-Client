@@ -1,35 +1,36 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
+import { toast } from "react-toastify";
 
 const UpdateForm = () => {
 
-    const {id} = useParams()
+    const { id } = useParams()
     console.log(id)
 
-    const [updateData, setUpdateData ] = useState({
-        _id:'',
-        name:'',
-        brand:'',
-        type:'',
-        price:'',
-        rating:'',
-        description:'',
-        image:'',
+    const [updateData, setUpdateData] = useState({
+        _id: '',
+        name: '',
+        brand: '',
+        type: '',
+        price: '',
+        rating: '',
+        description: '',
+        image: '',
     })
 
     useEffect(() => {
-      if(id){
-        fetch('http://localhost:5000/items')
-        .then(res => res.json())
-        .then(data =>{
-            const updateData = data?.find(data => data._id === id)
-            setUpdateData(updateData)
-        })
-        .catch(error => {
-            console.error(error)
-        })
-      }
-    },[id])
+        if (id) {
+            fetch('https://tech-zoo-server.vercel.app/items')
+                .then(res => res.json())
+                .then(data => {
+                    const updateData = data?.find(data => data._id === id)
+                    setUpdateData(updateData)
+                })
+                .catch(error => {
+                    console.error(error)
+                })
+        }
+    }, [id])
 
     const handleUpdateForm = e => {
         e.preventDefault();
@@ -45,7 +46,7 @@ const UpdateForm = () => {
         console.log("newItemData", newItemData)
 
 
-        fetch(`http://localhost:5000/items/${updateData._id}`, {
+        fetch(`https://tech-zoo-server.vercel.app/items/${updateData._id}`, {
             method: "PUT",
             headers: {
                 "Content-Type": "application/json",
@@ -55,7 +56,7 @@ const UpdateForm = () => {
             .then((res) => res.json())
             .then((data) => {
                 console.log(data);
-                // toast('Update Successfully')
+                toast('Update Successfully')
             });
     }
 
@@ -66,9 +67,9 @@ const UpdateForm = () => {
             <h2 className="text-5xl font-extrabold text-center mb-6 uppercase">Update</h2>
 
 
-           
+
             <form onSubmit={handleUpdateForm}>
-                
+
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2">
                         <label className="label">
@@ -97,7 +98,7 @@ const UpdateForm = () => {
                 </div>
 
 
-               
+
                 <div className="md:flex mb-6">
                     <div className="form-control md:w-1/2">
                         <label className="label">
@@ -126,8 +127,8 @@ const UpdateForm = () => {
                             <input type="text" name="price" defaultValue={updateData?.price} placeholder="Price" className="input input-bordered w-full" />
                         </label>
                     </div>
-                    
-                </div>    
+
+                </div>
 
                 <input className="btn btn-block btn-info mt-6" type="submit" value="Submit" />
 

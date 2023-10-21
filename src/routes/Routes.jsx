@@ -20,7 +20,7 @@ const router = createBrowserRouter([
             {
                 path: '/',
                 element: <Home></Home>,
-                loader: () => fetch('http://localhost:5000/brand')
+                loader: () => fetch('https://tech-zoo-server.vercel.app/brand')
             },
             {
                 path: '/addProduct',
@@ -29,7 +29,7 @@ const router = createBrowserRouter([
             {
                 path: 'myCart',
                 element: <MyCart></MyCart>,
-                loader: () => fetch('http://localhost:5000/myCart')
+                loader: () => fetch('https://tech-zoo-server.vercel.app/myCart')
             },
             {
                 path: '/login',
@@ -42,8 +42,8 @@ const router = createBrowserRouter([
             {
                 path: '/brandName',
                 element: <BrandName></BrandName>,
-                loader: () => fetch('http://localhost:5000/brand')
-                
+                loader: () => fetch('https://tech-zoo-server.vercel.app/brand')
+
             },
             {
                 path: '/singleBrand/:id',

@@ -4,42 +4,42 @@ import { useEffect, useState } from "react";
 
 const SingleBrand = () => {
 
-    const {id} = useParams();
+    const { id } = useParams();
     // console.log(id)
 
     const [allBrandData, setAllBrandData] = useState(null)
     const [singleBrandData, setSingleBrandData] = useState([])
 
-    
-
-    useEffect(() =>{
-           if(id){
-               fetch('http://localhost:5000/brand')
-               .then(res => res.json())
-               .then(data => {
-                 data?.map(singleData =>{
-                     if(singleData?._id === id){
-                        setAllBrandData(singleData.name)
-                       console.log(singleData.name) 
-                     }
-                 })
-               })
-           }
-    },[id])
 
 
     useEffect(() => {
-       if(allBrandData){
-           fetch('http://localhost:5000/items')
-           .then(res =>res.json())
-           .then(data =>{
-              const dataFilter = data?.filter(item => item.brand === allBrandData )
-              setSingleBrandData(dataFilter)
-            // console.log(data)
-           })
-       }
-    },[allBrandData, singleBrandData])
-    
+        if (id) {
+            fetch('https://tech-zoo-server.vercel.app/brand')
+                .then(res => res.json())
+                .then(data => {
+                    data?.map(singleData => {
+                        if (singleData?._id === id) {
+                            setAllBrandData(singleData.name)
+                            console.log(singleData.name)
+                        }
+                    })
+                })
+        }
+    }, [id])
+
+
+    useEffect(() => {
+        if (allBrandData) {
+            fetch('https://tech-zoo-server.vercel.app/items')
+                .then(res => res.json())
+                .then(data => {
+                    const dataFilter = data?.filter(item => item.brand === allBrandData)
+                    setSingleBrandData(dataFilter)
+                    // console.log(data)
+                })
+        }
+    }, [allBrandData, singleBrandData])
+
 
 
     return (
@@ -66,10 +66,10 @@ const SingleBrand = () => {
                         <a href="#slide1" className="btn btn-circle">❯</a>
                     </div>
                 </div>
-                
+
             </div>
 
-           
+
             <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">
                 {
                     Array.isArray(singleBrandData) && singleBrandData?.map(brandData => (
