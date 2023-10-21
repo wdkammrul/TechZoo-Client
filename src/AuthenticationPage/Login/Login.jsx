@@ -1,26 +1,39 @@
-import { Link } from "react-router-dom";
+import { useContext } from "react";
+import { Link, useLocation, useNavigate } from "react-router-dom";
+import { toast } from "react-toastify";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+
 
 
 const Login = () => {
 
-    // step-2 
-    const handleLogin = e =>{
+    const { signInUser, signInUsingPopup } = useContext(AuthContext)
+    const location = useLocation();
+    const navigate = useNavigate();
+
+    const handleLogin = e => {
         e.preventDefault()
 
         const form = e.target
-        const email = form.email.value 
-        const password = form.password.value 
+        const email = form.email.value
+        const password = form.password.value
         // console.log(email, password)
 
-        const loginData = {email, password}
+        const loginData = { email, password }
         console.log(loginData)
-        
+
+        signInUser(email, password)
+            .then(res => {
+                toast('Log In Successful', res)
+                navigate(location?.state ? location.state : '/')
+            })
+            .catch(err => toast('Invalid Email or Password', err))
+
     }
 
     return (
         <div>
-            
-            {/* step-1  */}
+
             <form onSubmit={handleLogin} className="w-11/12 md:w-3/4 lg:w-1/2 mx-auto bg-slate-800 rounded-lg p-10 mt-10">
                 <div className="form-control">
                     <h2 className="text-4xl text-center my-6 uppercase font-extrabold">Log in</h2>
@@ -44,10 +57,10 @@ const Login = () => {
 
                     <div className="flex my-8 ">
                         <p className="text-center">No account ? Please <Link to='/register'> <span className="underline font-extrabold text-info text-2xl">Register</span></Link></p>
-                    
+
                     </div>
 
-                    <button className=" m-auto btn btn-success uppercase">Log in with Google </button>
+                    <button onClick={signInUsingPopup} className=" m-auto btn btn-success uppercase">Log in with Google </button>
                 </div>
             </form>
         </div>

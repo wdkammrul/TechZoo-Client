@@ -1,17 +1,54 @@
+import { useContext } from "react";
 import { Link } from "react-router-dom";
+import { AuthContext } from "../AuthProvider/AuthProvider";
+import { toast } from "react-toastify";
 
 const Register = () => {
 
-    const handleRegisterBtn = e =>{
-        e.preventDefault()
+    const { registerUser } = useContext(AuthContext);
+
+    const isStrongPassword = (password) => {
+        // const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*\d)(?=.*[!@#$%^&*()_+{}\\[\]:;<>,.?~\\/-]).{6,}$/;
+        const strongPassword = /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#$%^&*(),.?":{}|<>]).{6,}$/;
+
+        return strongPassword.test(password);
+    };
+
+    const handleRegisterBtn = (e) => {
+        e.preventDefault();
         const form = e.target;
-        const name = form.name.value
-        const email = form.email.value
-        const password = form.password.value
-        // console.log(name,email,password)
-        
-        const registerData = {name, email, password}
-        console.log(registerData)
+        const name = form.name.value;
+        const email = form.email.value;
+        const password = form.password.value;
+        const values = { name, email, password }
+        console.log(values);
+
+
+        if (!isStrongPassword(password)) {
+            toast('Password must be at least 6 characters long and contain at least one uppercase letter, one special character, and one number');
+            return;
+        }
+
+        registerUser(email, password)
+            .then(res => toast('Congratulations! For Being A Member', res))
+            .catch(err => toast('Try Again Please', err))
+
+
+        fetch('https://beverage-server-site.vercel.app/users', {
+            method: "POST",
+            headers: {
+                "content-type": "application/json",
+            },
+            body: JSON.stringify(values),
+
+        })
+            .then(res => res.json())
+            .then(data => {
+                if (data.insertedId) {
+                    form.reset();
+                }
+                console.log(data)
+            })
     }
 
     return (

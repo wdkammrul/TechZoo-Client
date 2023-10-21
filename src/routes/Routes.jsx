@@ -10,6 +10,7 @@ import SingleBrand from "../pages/SingleBrand/SingleBrand";
 import UpdateForm from "../pages/UpdateForm/UpdateForm";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import BrandName from "../pages/BrandName/BrandName";
+import PrivateRoute from "../AuthenticationPage/AuthProvider/PrivateRoute/PrivateRoute";
 
 const router = createBrowserRouter([
     {
@@ -24,11 +25,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/addProduct',
-                element: <AddProduct></AddProduct>
+                element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
             },
             {
                 path: 'myCart',
-                element: <MyCart></MyCart>,
+                element: <PrivateRoute><MyCart></MyCart></PrivateRoute>,
                 loader: () => fetch('https://tech-zoo-server.vercel.app/myCart')
             },
             {
@@ -51,11 +52,11 @@ const router = createBrowserRouter([
             },
             {
                 path: '/updateForm/:id',
-                element: <UpdateForm></UpdateForm>
+                element: <PrivateRoute><UpdateForm></UpdateForm></PrivateRoute>
             },
             {
                 path: '/detailsPage/:id',
-                element: <DetailsPage></DetailsPage>
+                element: <PrivateRoute><DetailsPage></DetailsPage></PrivateRoute>
             }
         ]
     }
