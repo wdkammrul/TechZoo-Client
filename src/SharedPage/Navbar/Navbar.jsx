@@ -1,12 +1,21 @@
 import { Link, NavLink } from "react-router-dom";
+import { AuthContext } from "../../AuthenticationPage/AuthProvider/AuthProvider";
+import { useContext } from "react";
 
 const Navbar = () => {
+
+    
+    const { user, signOutFromSite } = useContext(AuthContext);
 
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addProduct'>Add Product</NavLink></li>
         <li><NavLink to='/myCart'>My Cart </NavLink></li>
     </>
+
+    const userLogout = () => {
+        signOutFromSite()
+    }
 
     return (
         <div className="navbar bg-base-100">
@@ -29,10 +38,26 @@ const Navbar = () => {
                     {navLinks}
                 </ul>
             </div>
+
             <div className="navbar-end">
-                <Link to="/login" className="btn btn-info text-white">Login</Link>
+                {
+                    user ? <> <div className="dropdown dropdown-end">
+                        <label tabIndex={0} className="btn btn-ghost btn-circle avatar">
+                            <div className="w-10 rounded-full">
+                                <img src={user.photo || user.photoURL} />
+                            </div>
+                        </label>
+                        <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
+
+                            <li><a onClick={userLogout}>Logout</a></li>
+                        </ul>
+                    </div>
+                    </>
+                        :
+                        <Link to="/login" className="btn btn-info text-white">Login</Link>
+                }
             </div>
-        </div>
+        </div >
     );
 };
 
