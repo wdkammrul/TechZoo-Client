@@ -3,7 +3,7 @@ import { useLoaderData, useNavigate } from "react-router-dom";
 const BrandName = () => {
 
     const brandNames = useLoaderData()
-    console.log(brandNames)
+    // console.log(brandNames)
     
     const brandNavigate = useNavigate()
 

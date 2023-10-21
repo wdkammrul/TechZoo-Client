@@ -40,9 +40,11 @@ const UpdateForm = () => {
         const rating = form.rating.value
         const type = form.type.value
         const price = form.price.value
-        console.log(name, rating, type, price, brand)
+        const description = form.description.value
+        const image = form.image.value
+        // console.log(name, rating, type, price, brand)
 
-        const newItemData = { name, rating, type, price, brand }
+        const newItemData = { name, rating, type, price, brand, image, description}
         console.log("newItemData", newItemData)
 
 
@@ -119,7 +121,7 @@ const UpdateForm = () => {
                 </div>
 
                 <div className="md:flex mb-6">
-                    <div className="form-control md:w-full">
+                    <div className="form-control md:w-1/2">
                         <label className="label">
                             <span className="label-text"></span>
                         </label>
@@ -127,7 +129,25 @@ const UpdateForm = () => {
                             <input type="text" name="price" defaultValue={updateData?.price} placeholder="Price" className="input input-bordered w-full" />
                         </label>
                     </div>
+                    <div className="form-control md:w-1/2 ml-4">
+                        <label className="label">
+                            <span className="label-text"></span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="description" defaultValue={updateData?.description}  placeholder=" description" className="input input-bordered w-full" />
+                        </label>
+                    </div>
+                </div>
 
+                <div className="mb-12">
+                    <div className="form-control w-full">
+                        <label className="label">
+                            <span className="label-text"></span>
+                        </label>
+                        <label className="input-group">
+                            <input type="text" name="image" defaultValue={updateData?.image} placeholder="Image URL" className="input input-bordered w-full" />
+                        </label>
+                    </div>
                 </div>
 
                 <input className="btn btn-block btn-info mt-6" type="submit" value="Submit" />
