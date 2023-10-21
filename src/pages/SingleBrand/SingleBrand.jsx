@@ -35,12 +35,11 @@ const SingleBrand = () => {
            .then(data =>{
               const dataFilter = data?.filter(item => item.brand === allBrandData )
               setSingleBrandData(dataFilter)
-            //    console.log(data)
+            // console.log(data)
            })
        }
     },[allBrandData, singleBrandData])
     
-
 
 
     return (
@@ -71,10 +70,10 @@ const SingleBrand = () => {
             </div>
 
            
-            <div>
+            <div className="grid grid-cols-1 md:grid-cols-1 lg:grid-cols-2 gap-6">
                 {
                     Array.isArray(singleBrandData) && singleBrandData?.map(brandData => (
-                        <div key={brandData._id} className="mt-20 relative w-[400px] md:w-[740px] lg:w-full mx-auto flex flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
+                        <div key={brandData._id} className="mt-20 relative w-[400px] md:w-[740px] h-[250px] lg:w-full mx-auto flex flex-row rounded-xl bg-white bg-clip-border text-gray-700 shadow-md">
                             <div className="relative m-0 w-2/5 shrink-0 overflow-hidden rounded-xl rounded-r-none bg-white bg-clip-border text-gray-700">
                                 <img
                                     src={brandData?.image}
@@ -83,10 +82,10 @@ const SingleBrand = () => {
                             </div>
 
                             <div className="p-10">
-                                <h6 className="mb-2 block font-sans text-base font-semibold  leading-relaxed tracking-normal  w-32 rounded-lg  antialiased">
+                                <h6 className="mb-2  font-sans text-base font-semibold  leading-relaxed tracking-normal   rounded-lg  antialiased">
                                     Name: {brandData?.name}
                                 </h6>
-                                <h4 className="mb-2 block font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
+                                <h4 className="mb-2  font-sans text-2xl font-semibold leading-snug tracking-normal text-blue-gray-900 antialiased">
                                     Brand Name:  {brandData?.brand}
                                 </h4>
                                 <p className="mb-2 block font-sans text-base font-normal leading-relaxed text-gray-700 antialiased">
@@ -99,7 +98,7 @@ const SingleBrand = () => {
                                     <Rating rating={brandData?.rating}></Rating>
                                 </p>
 
-                                <div className="flex gap-6">
+                                <div className="flex gap-6 pt-3">
                                     <Link to={`/detailsPage/${brandData._id}`}><button
                                         className="flex select-none  items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold  text-white transition-all bg-info disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                         type="button"
@@ -108,7 +107,7 @@ const SingleBrand = () => {
 
                                     </button></Link>
 
-                                    <Link to='/updateForm'><button
+                                    <Link to={`/updateForm/${brandData._id}`}><button
                                         className="flex select-none  items-center gap-2 rounded-lg py-3 px-6 text-center align-middle font-sans text-xs font-bold  text-white transition-all bg-info disabled:pointer-events-none disabled:opacity-50 disabled:shadow-none"
                                         type="button"
                                     >

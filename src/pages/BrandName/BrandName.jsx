@@ -24,11 +24,11 @@ const BrandName = () => {
 
                    {
                      brandNames?.map(brandName => (
-                         <div onClick={ () => handleBrandName(brandName._id)} key={brandName._id} className="card card-compact w-[310px]  bg-base-100 shadow-xl">
-                             <figure><img src={brandName?.logo} alt="Shoes" /></figure>
+                         <div onClick={ () => handleBrandName(brandName._id)} key={brandName._id} className="card card-compact  bg-base-100 rounded-lg">
+                             <figure><img className="w-[310px] h-[230px]" src={brandName?.logo} alt="Shoes" /></figure>
 
-                             <div className="text-end absolute left-52 top-48 bg-info text-white text-sm m-4 p-4 rounded-lg">
-                                <h1>{brandName?.name} </h1>
+                             <div className="text-center absolute left-56 top-52 bg-info w-32 text-white text-sm m-4 p-4 rounded-lg">
+                                <h1 className="">{brandName?.name} </h1>
                              </div>
                          </div>
                      ))

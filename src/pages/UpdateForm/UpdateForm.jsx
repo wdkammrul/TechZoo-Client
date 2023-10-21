@@ -1,4 +1,35 @@
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+
 const UpdateForm = () => {
+
+    const {id} = useParams()
+    console.log(id)
+
+    const [updateData, setUpdateData ] = useState({
+        _id:'',
+        name:'',
+        brand:'',
+        type:'',
+        price:'',
+        rating:'',
+        description:'',
+        image:'',
+    })
+
+    useEffect(() => {
+      if(id){
+        fetch('http://localhost:5000/items')
+        .then(res => res.json())
+        .then(data =>{
+            const updateData = data?.find(data => data._id === id)
+            setUpdateData(updateData)
+        })
+        .catch(error => {
+            console.error(error)
+        })
+      }
+    },[id])
 
     const handleUpdateForm = e => {
         e.preventDefault();
@@ -9,6 +40,23 @@ const UpdateForm = () => {
         const type = form.type.value
         const price = form.price.value
         console.log(name, rating, type, price, brand)
+
+        const newItemData = { name, rating, type, price, brand }
+        console.log("newItemData", newItemData)
+
+
+        fetch(`http://localhost:5000/items/${updateData._id}`, {
+            method: "PUT",
+            headers: {
+                "Content-Type": "application/json",
+            },
+            body: JSON.stringify(newItemData),
+        })
+            .then((res) => res.json())
+            .then((data) => {
+                console.log(data);
+                // toast('Update Successfully')
+            });
     }
 
 
@@ -27,7 +75,7 @@ const UpdateForm = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="name" placeholder="Name" className="input input-bordered w-full" />
+                            <input type="text" name="name" defaultValue={updateData?.name} placeholder="Name" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -35,7 +83,7 @@ const UpdateForm = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <select name="brand" className="select select-error w-full border" defaultValue="">
+                            <select name="brand" className="select select-error w-full border" defaultValue={updateData?.brand}>
                                 <option value="" disabled>Select Brand</option>
                                 <option value="Apple">Apple</option>
                                 <option value="Samsung">Samsung</option>
@@ -56,7 +104,7 @@ const UpdateForm = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="type" placeholder="Type (types of products)" className="input input-bordered w-full" />
+                            <input type="text" name="type" defaultValue={updateData?.type} placeholder="Type (types of products)" className="input input-bordered w-full" />
                         </label>
                     </div>
                     <div className="form-control md:w-1/2 ml-4">
@@ -64,7 +112,7 @@ const UpdateForm = () => {
                             <span className="label-text"> </span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="rating" placeholder="Rating" className="input input-bordered w-full" />
+                            <input type="text" defaultValue={updateData?.rating} name="rating" placeholder="Rating" className="input input-bordered w-full" />
                         </label>
                     </div>
                 </div>
@@ -75,7 +123,7 @@ const UpdateForm = () => {
                             <span className="label-text"></span>
                         </label>
                         <label className="input-group">
-                            <input type="text" name="price" placeholder="Price" className="input input-bordered w-full" />
+                            <input type="text" name="price" defaultValue={updateData?.price} placeholder="Price" className="input input-bordered w-full" />
                         </label>
                     </div>
                     
