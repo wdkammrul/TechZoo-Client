@@ -68,8 +68,6 @@ const UpdateForm = () => {
 
             <h2 className="text-5xl font-extrabold text-center mb-6 uppercase">Update</h2>
 
-
-
             <form onSubmit={handleUpdateForm}>
 
                 <div className="md:flex mb-6">

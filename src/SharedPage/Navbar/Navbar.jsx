@@ -10,13 +10,14 @@ const Navbar = () => {
     const navLinks = <>
         <li><NavLink to='/'>Home</NavLink></li>
         <li><NavLink to='/addProduct'>Add Product</NavLink></li>
+        <li><NavLink to='/others'>Others</NavLink></li>
         <li><NavLink to='/myCart'>My Cart </NavLink></li>
     </>
-
+ 
     const userLogout = () => {
-        signOutFromSite()
+        signOutFromSite()  
     }
-
+   
     return (
         <div className="navbar bg-base-100">
             <div className="navbar-start">
@@ -26,7 +27,7 @@ const Navbar = () => {
                     </label>
                     <ul tabIndex={0} className="menu menu-sm dropdown-content mt-3 z-[1] p-2 shadow bg-base-100 rounded-box w-52">
                         {navLinks}
-                    </ul>
+                    </ul>     
                 </div>
                 <img className="w-32 h-32" src="https://i.ibb.co/THmK9VZ/TechZoo.png" alt="" />
 
@@ -48,8 +49,8 @@ const Navbar = () => {
                             </div>
                         </label>
                         <ul tabIndex={0} className="mt-3 z-[1] p-2 shadow menu menu-sm dropdown-content bg-base-100 rounded-box w-52">
-
-                            <li><a onClick={userLogout}>Logout</a></li>
+                             <li>{user?.email}</li>
+                            <li className="mt-2"><a onClick={userLogout}>Logout</a></li>
                         </ul>
                     </div>
                     </>

@@ -11,6 +11,7 @@ import UpdateForm from "../pages/UpdateForm/UpdateForm";
 import DetailsPage from "../pages/DetailsPage/DetailsPage";
 import BrandName from "../pages/BrandName/BrandName";
 import PrivateRoute from "../AuthenticationPage/AuthProvider/PrivateRoute/PrivateRoute";
+import Others from "../pages/Others/Others";
 
 const router = createBrowserRouter([
     {
@@ -26,6 +27,10 @@ const router = createBrowserRouter([
             {
                 path: '/addProduct',
                 element: <PrivateRoute><AddProduct></AddProduct></PrivateRoute>
+            },
+            {
+                path: '/others',
+                element: <Others></Others>
             },
             {
                 path: 'myCart',
